@@ -22,14 +22,14 @@ namespace AdvanticaAutomationTestServer.Services
                 FirstName = item.FirstName,
                 LastName = item.LastName,
                 MiddleName = item.MiddleName,
-                Sex = (Utis.Minex.WrokerIntegration.Sex)item.Sex,
-                Birthday = item.Birthday,
+                Sex = (Sex)item.Sex,
+                Birthday = Timestamp.FromDateTimeOffset(item.Birthday),
                 HaveChildren = item.HaveChildren
             });
 
             foreach (var worker in workerMessageList)
             {
-                await responseStream.WriteAsync(new WorkerAction { ActionType = Utis.Minex.WrokerIntegration.Action.DefaultAction, Worker = worker });
+                await responseStream.WriteAsync(new WorkerAction { Worker = worker });
             }
         }
 
@@ -41,7 +41,7 @@ namespace AdvanticaAutomationTestServer.Services
                 LastName = request.Worker.LastName,
                 MiddleName = request.Worker.MiddleName,
                 HaveChildren = request.Worker.HaveChildren,
-                Birthday = request.Worker.Birthday,
+                Birthday = request.Worker.Birthday.ToDateTime(),
                 Sex = (Enums.Sex)request.Worker.Sex
             };
 
@@ -55,8 +55,8 @@ namespace AdvanticaAutomationTestServer.Services
                 LastName = worker.LastName,
                 MiddleName = worker.MiddleName,
                 HaveChildren = worker.HaveChildren,
-                Birthday = worker.Birthday,
-                Sex = (Utis.Minex.WrokerIntegration.Sex)worker.Sex
+                Birthday = Timestamp.FromDateTimeOffset(worker.Birthday),
+                Sex = (Sex)worker.Sex
             };
 
             return await Task.FromResult(response);
@@ -74,7 +74,7 @@ namespace AdvanticaAutomationTestServer.Services
             worker.FirstName = request.Worker.FirstName;
             worker.LastName = request.Worker.LastName;
             worker.MiddleName = request.Worker.MiddleName;
-            worker.Birthday = request.Worker.Birthday;
+            worker.Birthday = request.Worker.Birthday.ToDateTime();
             worker.HaveChildren = request.Worker.HaveChildren;
             worker.Sex = (Enums.Sex)request.Worker.Sex;
 
@@ -87,8 +87,8 @@ namespace AdvanticaAutomationTestServer.Services
                 LastName = worker.LastName,
                 MiddleName = worker.MiddleName,
                 HaveChildren = worker.HaveChildren,
-                Birthday = worker.Birthday,
-                Sex = (Utis.Minex.WrokerIntegration.Sex)worker.Sex
+                Birthday = Timestamp.FromDateTimeOffset(worker.Birthday),
+                Sex = (Sex)worker.Sex
             };
 
             return await Task.FromResult(response);
@@ -113,8 +113,8 @@ namespace AdvanticaAutomationTestServer.Services
                 LastName = worker.LastName,
                 MiddleName = worker.MiddleName,
                 HaveChildren = worker.HaveChildren,
-                Birthday = worker.Birthday,
-                Sex = (Utis.Minex.WrokerIntegration.Sex)worker.Sex
+                Birthday = Timestamp.FromDateTimeOffset(worker.Birthday),
+                Sex = (Sex)worker.Sex
             };
 
             return await Task.FromResult(response);
@@ -136,8 +136,8 @@ namespace AdvanticaAutomationTestServer.Services
                 LastName = worker.LastName,
                 MiddleName = worker.MiddleName,
                 HaveChildren = worker.HaveChildren,
-                Birthday = worker.Birthday,
-                Sex = (Utis.Minex.WrokerIntegration.Sex)worker.Sex
+                Birthday = Timestamp.FromDateTimeOffset(worker.Birthday),
+                Sex = (Sex)worker.Sex
             });
         }
     }

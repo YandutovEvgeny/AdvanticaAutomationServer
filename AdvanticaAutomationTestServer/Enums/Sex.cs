@@ -2,7 +2,7 @@
 {
     public enum Sex
     {
-        DefaultSex,
+        Default,
         Male,
         Female
     }
