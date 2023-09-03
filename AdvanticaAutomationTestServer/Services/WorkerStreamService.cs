@@ -23,7 +23,7 @@ namespace AdvanticaAutomationTestServer.Services
                 LastName = item.LastName,
                 MiddleName = item.MiddleName,
                 Sex = (Sex)item.Sex,
-                Birthday = Timestamp.FromDateTimeOffset(item.Birthday),
+                Birthday = Timestamp.FromDateTime(DateTime.SpecifyKind(item.Birthday, DateTimeKind.Utc)),
                 HaveChildren = item.HaveChildren
             });
 
@@ -55,7 +55,7 @@ namespace AdvanticaAutomationTestServer.Services
                 LastName = worker.LastName,
                 MiddleName = worker.MiddleName,
                 HaveChildren = worker.HaveChildren,
-                Birthday = Timestamp.FromDateTimeOffset(worker.Birthday),
+                Birthday = Timestamp.FromDateTime(DateTime.SpecifyKind(worker.Birthday, DateTimeKind.Utc)),
                 Sex = (Sex)worker.Sex
             };
 
@@ -87,7 +87,7 @@ namespace AdvanticaAutomationTestServer.Services
                 LastName = worker.LastName,
                 MiddleName = worker.MiddleName,
                 HaveChildren = worker.HaveChildren,
-                Birthday = Timestamp.FromDateTimeOffset(worker.Birthday),
+                Birthday = Timestamp.FromDateTime(DateTime.SpecifyKind(worker.Birthday, DateTimeKind.Utc)),
                 Sex = (Sex)worker.Sex
             };
 
@@ -113,7 +113,7 @@ namespace AdvanticaAutomationTestServer.Services
                 LastName = worker.LastName,
                 MiddleName = worker.MiddleName,
                 HaveChildren = worker.HaveChildren,
-                Birthday = Timestamp.FromDateTimeOffset(worker.Birthday),
+                Birthday = Timestamp.FromDateTime(DateTime.SpecifyKind(worker.Birthday, DateTimeKind.Utc)),
                 Sex = (Sex)worker.Sex
             };
 
@@ -136,7 +136,7 @@ namespace AdvanticaAutomationTestServer.Services
                 LastName = worker.LastName,
                 MiddleName = worker.MiddleName,
                 HaveChildren = worker.HaveChildren,
-                Birthday = Timestamp.FromDateTimeOffset(worker.Birthday),
+                Birthday = Timestamp.FromDateTime(DateTime.SpecifyKind(worker.Birthday, DateTimeKind.Utc)),
                 Sex = (Sex)worker.Sex
             });
         }
